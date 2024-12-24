@@ -63,7 +63,7 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
 
                     mfcc = mfcc.T
 
-                    # store only mfcc feature with expected number of vectors
+                  
                     if len(mfcc) == num_mfcc_vectors_per_segment:
                         data["mfcc"].append(mfcc.tolist())
                         data["labels"].append(i - 1)
@@ -75,4 +75,4 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
 
 
 if __name__ == "__main__":
-    save_mfcc(DATASET_PATH, JSON_PATH, segment_duration=3)  # segment_duration in seconds
+    save_mfcc(DATASET_PATH, JSON_PATH, segment_duration=3)  
