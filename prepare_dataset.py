@@ -51,14 +51,14 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
                 track_duration = librosa.get_duration(y=signal, sr=sample_rate)
                 num_segments = math.floor(track_duration / segment_duration)
 
-                # process all segments of audio file
+       
                 for d in range(num_segments):
 
-                    # calculate start and finish sample for current segment
+                   
                     start = samples_per_segment * d
                     finish = start + samples_per_segment
 
-                    # extract mfcc
+
                     mfcc = librosa.feature.mfcc(y=signal[start:finish],sr=sample_rate, n_mfcc=num_mfcc, n_fft=n_fft, hop_length=hop_length) 
 
                     mfcc = mfcc.T
@@ -69,7 +69,7 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
                         data["labels"].append(i - 1)
                         print("{}, segment:{}".format(file_path, d + 1))
 
-    # save MFCCs to json file
+
     with open(json_path, "w") as fp:
         json.dump(data, fp, indent=4)
 
