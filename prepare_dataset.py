@@ -20,7 +20,7 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
         :return:
         """
 
-    # dictionary to store mapping, labels, and MFCCs
+  
     data = {
         "mapping": [],
         "labels": [],
@@ -30,10 +30,10 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
     samples_per_segment = segment_duration * SAMPLE_RATE
     num_mfcc_vectors_per_segment = math.ceil(samples_per_segment / hop_length)
 
-    # loop through all genre sub-folder
+
     for i, (dirpath, dirnames, filenames) in enumerate(os.walk(dataset_path)):
 
-        # ensure we're processing a genre sub-folder level
+
         if dirpath is not dataset_path:
 
             # save genre label (i.e., sub-folder name) in the mapping
