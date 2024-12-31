@@ -69,11 +69,11 @@ def prepare_datasets(test_size, validation_size):
 
     X, y = load_data(DATA_PATH)
 
-    # create train, validation and test split
+
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=validation_size)
 
-    # add an axis to input sets
+
     X_train = X_train[..., np.newaxis]
     X_validation = X_validation[..., np.newaxis]
     X_test = X_test[..., np.newaxis]
@@ -88,7 +88,7 @@ def build_model(input_shape):
     :return model: CNN model
     """
 
-    # build network topology
+
     model = keras.Sequential()
 
     # 1st conv layer
@@ -129,7 +129,7 @@ def predict(model, X, y):
     :param y (int): Target
     """
 
-    # add a dimension to input data for sample - model.predict() expects a 4d array in this case
+   
     X = X[np.newaxis, ...]  # array shape (1, 130, 13, 1)
 
     # perform prediction
